@@ -30,8 +30,27 @@ const productDetails = require('../src/productDetails');
 */
 
 describe('6 - Implemente os casos de teste para a função `productDetails`', () => {
-  it('Verifica se a função `productDetails` tem o comportamento esperado', () => {
-    fail('Teste vazio!');
+  it('Teste se productDetails é uma função.', () => {
+    expect(typeof productDetails).toBe('function')
+  });
+  it('Teste se o retorno da função é um array.', () => {
+    expect(Array.isArray(productDetails(1,2))).toBeTruthy() // https://pt.stackoverflow.com/questions/77190/como-saber-se-um-objeto-%C3%A9-um-array-em-javascript-sem-jquery#:~:text=O%20m%C3%A9todo%20Array.,e%20false%20se%20n%C3%A3o%20%C3%A9.
+  });
+  it('Teste se o array retornado pela função contém dois itens dentro.', () => {});
+    expect(productDetails(1,2).length).toBe(2)
+  });
+  it('Teste se os dois itens dentro do array retornado pela função são objetos.',() =>{
+    expect(typeof productDetails(1,2)).toBe('object')
+  });
+  it('Teste se quando passado parâmetros diferentes entre si, os dois objetos também são diferentes entre si.',() => {
+    expect(productDetails(1,2)[0].name).not.toBe(productDetails(1,2)[1].name)
+  });
+  it('Teste se os dois productIds terminam com 123.', () => {
+    expect(productDetails(1,2)[0].details.productId.endsWith('123')).toBeTruthy()
+  });
+  it('Teste se os dois productIds terminam com 123.', () => {
+    expect(productDetails(1,2)[1].details.productId.endsWith('123')).toBeTruthy()
+     // fail('Teste vazio!');
     // ESCREVA SEUS TESTES ABAIXO:
     // Teste se productDetails é uma função.
     // Teste se o retorno da função é um array.
@@ -40,4 +59,8 @@ describe('6 - Implemente os casos de teste para a função `productDetails`', ()
     // Teste se quando passado parâmetros diferentes entre si, os dois objetos também são diferentes entre si.
     // Teste se os dois productIds terminam com 123.
   });
-});
+ 
+  
+
+   
+
